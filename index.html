@@ -165,5 +165,17 @@
             
         </ul>
     </div>
+<script>
+    function searchkey(){
+        window.open("https://www.bing.com/search?q="+document.getElementById("key").value, "_blank");
+    }
+    document.onkeydown = function (e) {
+    var theEvent = window.event || e;
+    var code = theEvent.keyCode || theEvent.which || theEvent.charCode;
+        if (code == 13) {
+            searchkey();
+        }
+    }
+</script>
 </body>
 </html>
