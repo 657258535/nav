@@ -3,9 +3,9 @@
 <html lang="en" >
 <head>
 <meta charset="UTF-8">
-<title>jQuery粘性滑块导航（响应式）</title>
+<title>X导航(NAVX)-小众软件导航 ｜ 哈哈哈哈哈哈</title>
 <link href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/awesomplete/1.1.5/awesomplete.min.css" type="text/css" rel="stylesheet" /> 
-
+<base target="_blank" />
 <style>
 @font-face {
     font-family: 'CustomFont';
@@ -21,6 +21,9 @@
     text-decoration: none;
     font-family: "CustomFont", Arial, sans-serif;
 }
+body {
+        overflow: hidden;
+    }
 .et-hero-tabs,
 .et-slide {
   display: flex;
@@ -150,6 +153,37 @@
 .search .imgs:hover{
     background-color: #fff;
 }
+.rtop{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 25px;
+    line-height: 40px;
+    color: #333;
+    border-radius: 50%;
+    border: 3px solid #333;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    box-shadow: 0px 0px 13px 4px rgba(0,0,0,0.5);
+}
+
+.nav-list{
+    width: 100%;
+    padding-top: 50px;
+}
+.nav-list a{
+    width: 150px;
+    height: 50px;
+    display: inline-block;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 800;
+    line-height: 50px;
+    margin: 10px;
+    border-radius: 5px;
+}
 </style>
 </head>
 <body>
@@ -157,11 +191,12 @@
     <img class="jslogo" src="favicon.ico" />
     
     <div class="search">
-        <img src="/favicon.ico" class="imgs" />
+        <img src="favicon.ico" class="imgs" />
         <input type="text" id="key" value="" placeholder="请输入关键词" />
     </div>
     
     <div class="et-hero-tabs-container"> 
+    
         <a class="et-hero-tab" href="#tab-1">购物</a>
         <a class="et-hero-tab" href="#tab-2">影视</a>
         <a class="et-hero-tab" href="#tab-3">教程</a>
@@ -189,65 +224,192 @@
 <main class="et-main">
   <section class="et-slide" id="tab-1">
     <h1>购物</h1>
-    <h3>shopx</h3>
+    <h3>something about shop</h3>
+    <div class="nav-list">
+        <a style="background-color: red;" href="">
+           京东 
+        </a>
+        <a style="background-color: #ff5000;" href="">
+           淘宝 
+        </a>
+        <a style="background-color: #007185;" href="">
+           亚马逊 
+        </a>
+    </div>
   </section>
   <section class="et-slide" id="tab-2">
     <h1>影视</h1>
-    <h3>something about flexbox</h3>
+    <h3>something about video</h3>
+    <div class="nav-list">
+        <a style="background-color: #ff5550;" href="https://jx.4asport.com">免费视频</a>
+        <a style="background-color: #00aeec;" href="https://www.bilibili.com">哔哩</a>
+        <a style="background-color:#f25b20;" href="https://v.qq.com">腾讯</a>
+        <a style="background-color:#ff008c;" href="https://www.youku.com">优酷</a>
+        <a style="background-color:#00cc4c;" href="https://www.iqiyi.com">爱奇艺</a>
+        <a style="background-color:#000000;" href="https://www.douyin.com">抖音</a>
+        <a style="background-color:#000000;" href="https://www.tiktok.com">Tiktok</a>
+        <a style="background-color:red;" href="https://www.youtube.com">Youtube</a>
+        <a style="background-color:#ee4d3b;" href="https://www.netflix.com">Netflix</a>
+        <a style="background-color:#333;" href="https://video.unext.jp">Unext</a>
+    </div>
   </section>
   <section class="et-slide" id="tab-3">
     <h1>教程</h1>
-    <h3>something about react</h3>
+    <h3>something about course</h3>
+    <div class="nav-list">
+        <a style="background-color:#96b97d;" href="https://www.runoob.com">菜鸟</a>
+        <a style="background-color:#e02020;" href="https://www.imooc.com">慕课</a>
+        <a style="background-color:#FF3F29;" href="https://study.163.com">网易课程</a>
+        <a style="background-color:#0056d2;" href="https://www.coursera.org">Coursera</a>
+    </div>
   </section>
   <section class="et-slide" id="tab-4">
     <h1>前端</h1>
-    <h3>something about angular</h3>
+    <h3>something about web</h3>
+    <div class="nav-list">
+        <a style="background-color:#0056d2;" href="https://html.4asport.com">HTML编辑</a>
+        <a style="background-color:#458251;" href="https://cdn.bytedance.com">字节静态库</a>
+        <a style="background-color:rgb(28 188 156);" href="https://www.staticfile.org">Staticfile</a>
+        <a style="background-color:#1e1f26;" href="https://codepen.io">Codepen</a>
+        <a style="background-color:#f63;" href="https://cdnjs.com">Cdnjs</a>
+        <a style="background-color:#ff5627;" href="https://www.jsdelivr.com">Jsdelivr</a>
+    </div>
   </section>
   <section class="et-slide" id="tab-5">
     <h1>开发</h1>
-    <h3>something about other</h3>
+    <h3>something about development</h3>
+    <div class="nav-list">
+        <a style="background-color:#000000;" href="https://github.com">GitHub</a>
+        <a style="background-color:#0066b8;" href="https://code.visualstudio.com">Vscode</a>
+        <a style="background-color:#5c2d91;" href="https://visualstudio.microsoft.com/zh-hans">VStudio</a>
+        <a style="background-color:#259E3B;" href="https://dcloud.io/hbuilderx.html">HbuilderX</a>
+        <a style="background-color:#028399;" href="http://github.com/electron/fiddle/releases">Electron</a>
+    </div>
   </section>
   
   <section class="et-slide" id="tab-6">
     <h1>工具</h1>
-    <h3>something about es6</h3>
+    <h3>something about tool</h3>
+    <div class="nav-list">
+        <a style="background-color:#333;" href="https://addmerit.4asport.com">攒功德</a>
+        <a style="background-color:#333;" href="https://text-deduplication.4asport.com">文本去重</a>
+        <a style="background-color:#333;" href="https://text-speech.4asport.com">文本转语音</a>
+        <a style="background-color:#333;" href="https://v2img.4asport.com/">视频转图片</a>
+        <a style="background-color:#333;" href="https://crx2zip.4asport.com">CRX转ZIP</a>
+        <a style="background-color:#333;" href="https://encodex.4asport.com">编解码</a>
+        <a style="background-color:#333;" href="https://jsencrypt.4asport.com">JS加密</a>
+        <a style="background-color:#333;" href="https://sql.4asport.com">SQL生成</a>
+        <a style="background-color:#333;" href="https://cznull.github.io/vsbm">毒蘑菇测试</a>
+        <a style="background-color:#333;" href="https://etcher.balena.io">刻录U盘</a>
+        <a style="background-color:#333;" href="https://geph.io/zhs">FreeVPN</a>
+        <a style="background-color:#333;" href="https://developer.android.google.cn/studio/releases/platform-tools">Adb驱动</a>
+        <a style="background-color:#333;" href="https://download.strongswan.org/Android">AndroidVP</a>
+        <a style="background-color:#333;" href="https://imagemagick.org">ImageMagick</a>
+        <a style="background-color:#333;" href="https://github.com/kohler/gifsicle">Gifsicle</a>
+        <a style="background-color:#333;" href="https://www.7-zip.org">7zip</a>
+    </div>
   </section>
   <section class="et-slide" id="tab-7">
     <h1>图片</h1>
-    <h3>something about flexbox</h3>
+    <h3>something about image</h3>
+    <div class="nav-list">
+        <a style="background-color:#333;" href="https://img-exif.4asport.com">Exif查看</a>
+        <a style="background-color:#d75656;" href="https://long-picture.4asport.com">长图拼接</a>
+        <a style="background-color:#17580f;" href="https://pdf2img.4asport.com">PDF转图片</a>
+        <a style="background-color:#73f694;" href="https://qrcode.4asport.com">QRcode</a>
+        <a style="background-color:#d14287;" href="https://compressimg.4asport.com">图片压缩</a>
+        <a style="background-color:#333;" href="https://img-watermark.4asport.com">添加水印</a>
+        <a style="background-color:#000;" href="https://img-filter.4asport.com">图片滤镜</a>
+        <a style="background-color:#37b358;" href="https://colors.4asport.com">Colors</a>
+        <a style="background-color:#454545;" href="https://www.remove.bg/zh">Rg-抠图</a>
+        <a style="background-color:#1a7cee;" href="https://ojoy.zaps.dev">Ojoy-2X</a>
+        <a style="background-color:#1565c0;" href="https://www.iconarchive.com">ICO素材</a>
+        <a style="background-color:rgb(9, 63, 98);" href="https://wallhaven.cc">高清壁纸</a>
+    </div>
   </section>
   <section class="et-slide" id="tab-8">
     <h1>A I</h1>
-    <h3>something about react</h3>
+    <h3>something about A I</h3>
+    <div class="nav-list">
+        <a style="background-color:#333;" href="https://github.com/ramonvc/freegpt-webui">FreeGPT</a>
+        <a style="background-color:#333;" href="https://github.com/facebookresearch/llama">LLama</a>
+        <a style="background-color:#333;" href="https://www.midjourney.com/home">Midjourney</a>
+        <a style="background-color:#333;" href="https://github.com/spipm/Depix">Depix</a>
+        <a style="background-color:#333;" href="https://github.com/Sanster/lama-cleaner">lamacleaner</a>
+        <a style="background-color:#333;" href="https://github.com/k4yt3x/video2x">Video2x</a>
+        <a style="background-color:#333;" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">S-Diffusion</a>
+    </div>
   </section>
   <section class="et-slide" id="tab-9">
     <h1>音频</h1>
-    <h3>something about angular</h3>
+    <h3>something about audio</h3>
+    <div class="nav-list">
+        <a style="background-color:#333;" href="https://github.com/babysor/MockingBird">MockingBird</a>
+        <a style="background-color:#333;" href="https://github.com/yxlllc/DDSP-SVC">DDSP-SVC</a>
+        <a style="background-color:#333;" href="https://www.algoriddim.com/neural-mix-pro">Neural-Mix</a>
+        <a style="background-color:#333;" href="https://www.lalal.ai/zh-hans">LalaAI</a>
+    </div>
   </section>
   <section class="et-slide" id="tab-10">
     <h1>视频</h1>
-    <h3>something about other</h3>
+    <h3>something about videos</h3>
+    <div class="nav-list">
+        <a style="background-color:#333;"  href="https://github.com/BtbN/FFmpeg-Builds/releases">ffmpeg</a>
+        <a style="background-color:#333;"  href="https://github.com/sczhou/ProPainter">ProPainter</a>
+        <a style="background-color:#333;"  href="https://runwayml.com">GEN2</a>
+        <a style="background-color:#333;"  href="https://github.com/iperov/DeepFaceLab">DeepFaceLab</a>
+        <a style="background-color:#333;"  href="https://wonderdynamics.com/">Wonder</a>
+        <a style="background-color:#333;"  href="https://swapface.org">Swapface</a>
+        <a style="background-color:#333;"  href="https://sketch.metademolab.com">ANIMATEDDRAWINGS</a>
+        <a style="background-color:#333;"  href="https://studio.d-id.com">D-ID</a>
+    </div>
   </section>
   
   <section class="et-slide" id="tab-11">
     <h1>系统</h1>
-    <h3>something about es6</h3>
+    <h3>something about system</h3>
+    <div class="nav-list">
+        <a style="background-color:#333;" href="https://www.microsoft.com/zh-cn/software-download/windows11">Windows11</a>
+        <a style="background-color:#333;" href="https://wwvc.lanzouk.com/iJb6x14z249g">Win子系统</a>
+        <a style="background-color:#333;" href="https://github.com/TGSAN/CMWTAT_Digital_Edition">系统激活</a>
+        <a style="background-color:#333;" href="https://github.com/topjohnwu/Magisk/releases">Magisk</a>
+        <a style="background-color:#333;" href="https://firmware-selector.openwrt.org">Openwrt</a>
+        <a style="background-color:#333;" href="https://www.primeos.in">Primeos</a>
+    </div>
   </section>
   <section class="et-slide" id="tab-12">
     <h1>办公</h1>
-    <h3>something about flexbox</h3>
+    <h3>something about Office</h3>
+    <div class="nav-list">
+        <a style="background-color:#333;" href="https://wwvc.lanzouk.com/igzPG14s07qh">Office绿色</a>
+    </div>
   </section>
   <section class="et-slide" id="tab-13">
     <h1>下载</h1>
-    <h3>something about react</h3>
+    <h3>something about download</h3>
+    <div class="nav-list">
+        <a style="background-color:#333;" href="https://wwvc.lanzouk.com/i6Sbv14z1q3g">IDM-6.38</a>
+        <a style="background-color:#333;" href="https://github.com/aria2/aria2/releases">Aria2</a>
+        <a style="background-color:#333;" href="https://github.com/iawia002/lux/releases">Lux</a>
+    </div> 
   </section>
   <section class="et-slide" id="tab-14">
     <h1>翻译</h1>
-    <h3>something about angular</h3>
+    <h3>something about Translation</h3>
+    <div class="nav-list">
+        <a style="background-color:#333;" href="https://cn.bing.com/translator">微软翻译</a>
+        <a style="background-color:#333;" href="https://translate.google.com">谷歌翻译</a>
+        <a style="background-color:#333;" href="https://github.com/huggingface/transformers">HuggingFace</a>
+        <a style="background-color:#333;" href="https://zh.rask.ai">RASK</a>
+    </div> 
   </section>
   <section class="et-slide" id="tab-15">
     <h1>建模</h1>
-    <h3>something about other</h3>
+    <h3>something about Modeling</h3>
+    <div class="nav-list">
+        <a style="background-color:#333;" href="https://app.meshy.ai">Meshy</a>
+        <a style="background-color:#333;" href="https://monstermash.zone">MonsterMash3D</a>
+    </div> 
   </section>
   
 </main>
@@ -257,6 +419,8 @@
 <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/awesomplete/1.1.5/awesomplete.min.js" type="application/javascript"></script>
 
 <script>
+window.onload = function() {
+
 var inputsekey=document.getElementById("key");
 //搜索框提示
 var comboplete = new Awesomplete(inputsekey, {
@@ -297,6 +461,11 @@ window.addEventListener("awesomplete-select", function(event){
 //   comboplete.close();
 //   return false;
 }, false);
+
+new StickyNavigation();
+document.querySelectorAll('.rtop')[0].click();
+
+}    
 //选项卡事件
 class StickyNavigation {
 	
@@ -305,8 +474,13 @@ class StickyNavigation {
 		this.currentTab = null;
 		this.tabContainerHeight = 70;
 		let self = this;
-		$('.et-hero-tab').click(function() { 
-			self.onTabClick(event, $(this)); 
+		$('.et-hero-tab').click(function(e) { 
+		    if(e.target.href=='javascript:(0)'){
+		        
+		    }else{
+		        self.onTabClick(event, $(this));
+		    }
+			
 		});
 		$(window).scroll(() => { this.onScroll(); });
 		$(window).resize(() => { this.onResize(); });
@@ -372,8 +546,8 @@ class StickyNavigation {
 	
 }
 
-new StickyNavigation();
+
 </script>
-	
+<a class="rtop" href="javascript:(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})">🔝</a>
 </body>
 </html>
