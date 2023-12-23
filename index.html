@@ -422,9 +422,23 @@ body {
 <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/awesomplete/1.1.5/awesomplete.min.js" type="application/javascript"></script>
 
 <script>
-window.onload = function() {
 
 var inputsekey=document.getElementById("key");
+
+window.onload = function() {
+//搜索
+function searchkey(){
+      window.open("https://www.bing.com/search?q="+inputsekey.value, "_blank");
+}
+//回车触发搜索
+document.onkeydown = function (e) {
+    var theEvent = window.event || e;
+    var code = theEvent.keyCode || theEvent.which || theEvent.charCode;
+    if (code == 13) {
+        searchkey();
+    }
+}
+
 //搜索框提示
 var comboplete = new Awesomplete(inputsekey, {
 	list: [
