@@ -72,7 +72,7 @@ body {
   flex: 1;
   color: #000;
   letter-spacing: 0.1rem;
-  transition: all 1s ease;
+  transition: all 0.5s ease;
   font-size: 0.8rem;
 }
 .et-hero-tab:hover {
@@ -87,7 +87,7 @@ body {
   width: 0;
   height: 6px;
   background: #66B1F1;
-  transition: left 1s ease;
+  transition: left 0.5s ease;
 }
 
 @media (min-width: 800px) {
@@ -154,19 +154,20 @@ body {
     background-color: #fff;
 }
 .rtop{
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
+    /* position: fixed;
+     top: 80px;
+    left: calc(50vw - 25px); */
     font-size: 25px;
     line-height: 40px;
     color: #333;
-    border-radius: 50%;
+    border-radius: 5px;
     border: 3px solid #333;
     width: 50px;
     height: 50px;
     text-align: center;
     box-shadow: 0px 0px 13px 4px rgba(0,0,0,0.5);
     cursor: pointer;
+    margin: 10px;
 }
 
 .nav-list{
@@ -197,7 +198,7 @@ body {
     </div>
     
     <div class="et-hero-tabs-container"> 
-    
+      <div class="rtop" title="返回首页" onclick="window.scrollTo({top:0,behavior:'smooth'})">⇧</div>
         <a class="et-hero-tab" href="#tab-1">购物</a>
         <a class="et-hero-tab" href="#tab-2">影视</a>
         <a class="et-hero-tab" href="#tab-3">教程</a>
@@ -218,6 +219,7 @@ body {
     
       
     <span class="et-hero-tab-slider"></span>
+    
     </div>
 </section>
 
@@ -569,6 +571,6 @@ class StickyNavigation {
 
 
 </script>
-<div class="rtop" title="返回首页" onclick="window.scrollTo({top:0,behavior:'smooth'})">⇧</div>
+
 </body>
 </html>
