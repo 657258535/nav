@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8">
+<title>感谢捐赠</title>
+<base target="_blank" />
+<style>
+@font-face {
+    font-family: 'CustomFont';
+    src: url('WenYue-ShengHuoJiaTi-J.woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "楷体";
+}
+.jslogo{
+    width: 200px;
+    height: 200px;
+    padding: 15px;
+    background-color: #000;
+    border-radius: 15px;
+    display: block;
+    margin-top: calc(30vh - 70px);
+    margin-bottom: 60px;
+    transition:all .7s ease-in-out;
+	
+}
+
+.imgs{
+        width:40px;
+        padding: 5px;
+    }
+.search{
+    text-align:center;
+    width: 70vw;
+    margin: 0 auto;
+    margin-top: 5vh;
+    background-color: #000;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 13px 4px rgba(0,0,0,0.1);
+    
+}
+.search #key{
+    width: 60vw;
+    height: 30px;
+}
+.search .imgs,.search #key,.list ul li,a{
+    color: gray;
+}
+.search .imgs,.search #key{
+    vertical-align:middle;
+    border-radius: 5px;
+    background-color: #000;
+    outline: none;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #eee;
+}
+
+.jslogo:hover,.imgs:hover{
+    transform: scale(1.1) rotate(360deg);
+    background-color: #fff;
+}
+</style>
+</head>
+<body>
+	<div align="center">
+		<img class="jslogo" src="jz.webp" />
+    </div>
+    <div class="search">
+        <img src="favicon.ico" class="imgs" />
+        <input type="text" id="key" value="" placeholder="请输入关键词" />
+    </div>
+
+<script>
+
+var inputsekey=document.getElementById("key");
+
+window.onload = function() {
+//搜索
+function searchkey(){
+      window.open("https://www.bing.com/search?q="+inputsekey.value, "_blank");
+}
+//回车触发搜索
+document.onkeydown = function (e) {
+    var theEvent = window.event || e;
+    var code = theEvent.keyCode || theEvent.which || theEvent.charCode;
+    if (code == 13) {
+        searchkey();
+    }
+}
+</script>
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?70068650f6a62905f9895fd846215077";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+</body>
+</html>
