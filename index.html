@@ -6,8 +6,36 @@
 <title>X导航(NAVX)-属于程序员的技术导航网站</title>
 <base target="_blank" />
 <link rel="icon" href="favicon.webp" />
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
+
+/* 主题颜色变量 */
+:root {
+  --bg-color: #eee;
+  --text-color: #000;
+  --nav-bg: #fff;
+  --search-bg: #000;
+  --search-text: #eee;
+  --tab-hover-bg: rgba(102, 177, 241, 0.8);
+  --tab-hover-text: white;
+  --slider-color: #66B1F1;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --link-color: #fff;
+}
+
+/* 黑夜模式 */
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #fff;
+  --nav-bg: #1e1e1e;
+  --search-bg: #2d2d2d;
+  --search-text: #ddd;
+  --tab-hover-bg: rgba(102, 177, 241, 0.5);
+  --tab-hover-text: white;
+  --slider-color: #66B1F1;
+  --shadow-color: rgba(255, 255, 255, 0.1);
+  --link-color: #fff;
+}
 
 *{
     margin: 0;
@@ -29,7 +57,7 @@ body {
   align-items: center;
   height: 100vh;
   position: relative;
-  background: #eee;
+  background: var(--bg-color);
   text-align: center;
   padding: 0 2em;
 }
@@ -38,12 +66,14 @@ body {
   font-size: 1.5rem;
   margin-top: 70px;
   letter-spacing: 0.3rem;
+  color: var(--text-color);
 }
 .et-hero-tabs h3,
 .et-slide h3 {
   font-size: 1rem;
   letter-spacing: 0.3rem;
   opacity: 0.6;
+  color: var(--text-color);
 }
 
 .et-hero-tabs-container {
@@ -53,8 +83,8 @@ body {
   bottom: 0;
   width: 100%;
   height: 70px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  background: #fff;
+  box-shadow: 0 0 20px var(--shadow-color);
+  background: var(--nav-bg);
   z-index: 10;
 }
 .et-hero-tabs-container--top {
@@ -67,14 +97,14 @@ body {
   justify-content: center;
   align-items: center;
   flex: 1;
-  color: #000;
+  color: var(--text-color);
   letter-spacing: 0.1rem;
   transition: all 0.2s ease;
   font-size: 0.8rem;
 }
 .et-hero-tab:hover {
-  color: white;
-  background: rgba(102, 177, 241, 0.8);
+  color: var(--tab-hover-text);
+  background: var(--tab-hover-bg);
   transition: all 0.2s ease;
 }
 
@@ -83,7 +113,7 @@ body {
   bottom: 0;
   width: 0;
   height: 6px;
-  background: #66B1F1;
+  background: var(--slider-color);
   transition: left 0.2s ease;
 }
 
@@ -99,6 +129,76 @@ body {
 
   .et-hero-tab {
     font-size: 1rem;
+  }
+}
+
+/* 移动端响应式设计 */
+@media (max-width: 799px) {
+  /* 导航栏优化 */
+  .et-hero-tabs-container {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .et-hero-tab {
+    flex: 0 0 auto;
+    min-width: 60px;
+    font-size: 0.7rem;
+    padding: 0 8px;
+  }
+  
+  /* 搜索框优化 */
+  .search {
+    width: 90vw;
+  }
+  
+  .search #key {
+    width: 70vw;
+  }
+  
+  /* 图标链接布局优化 */
+  main .nav-list a {
+    width: 120px;
+    height: 45px;
+    font-size: 16px;
+    line-height: 45px;
+    margin: 8px;
+  }
+  
+  /* 字体大小调整 */
+  .et-hero-tabs h1,
+  .et-slide h1 {
+    font-size: 1.2rem;
+    margin-top: 50px;
+  }
+  
+  .et-hero-tabs h3,
+  .et-slide h3 {
+    font-size: 0.9rem;
+  }
+  
+  /* 调整主题切换和返回顶部按钮 */
+  .rtop, .theme-toggle {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    line-height: 35px;
+    flex-shrink: 0;
+  }
+  
+  .theme-toggle {
+    line-height: 45px;
+  }
+  
+  /* 隐藏滚动条但保留滚动功能 */
+  .et-hero-tabs-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .et-hero-tabs-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 .jslogo{
@@ -125,13 +225,13 @@ body {
     width: 70vw;
     margin: 0 auto;
     margin-top: 5vh;
-    background-color: #000;
+    background-color: var(--search-bg);
     height: 50px;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 0px 13px 4px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 13px 4px var(--shadow-color);
     
 }
 .search #key{
@@ -139,18 +239,18 @@ body {
     height: 30px;
 }
 .search .imgs,.search #key,.list ul li,a{
-    color: gray;
+    color: var(--search-text);
 }
 .search .imgs,.search #key{
     vertical-align:middle;
     border-radius: 5px;
-    background-color: #000;
+    background-color: var(--search-bg);
     outline: none;
     margin-left: 5px;
     margin-right: 5px;
     font-size: 14px;
     font-weight: 600;
-    color: #eee;
+    color: var(--search-text);
 }
 .search .imgs:hover{
     background-color: #fff;
@@ -161,32 +261,64 @@ body {
     left: calc(50vw - 25px); */
     font-size: 25px;
     line-height: 40px;
-    color: #333;
+    color: var(--text-color);
     border-radius: 5px;
-    border: 3px solid #333;
+    border: 3px solid var(--text-color);
     width: 50px;
     height: 50px;
     text-align: center;
-    box-shadow: 0px 0px 13px 4px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 13px 4px var(--shadow-color);
     cursor: pointer;
     margin: 10px;
+}
+
+.theme-toggle {
+    font-size: 25px;
+    line-height: 50px;
+    color: var(--text-color);
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
 }
 
 .nav-list{
     width: 100%;
     padding-top: 50px;
 }
-.nav-list a{
+main .nav-list a{
     width: 150px;
     height: 50px;
     display: inline-block;
     text-align: center;
     font-size: 18px;
-    color: #fff;
+    color: #fff !important;
+    background-color: #000 !important;
     font-weight: 800;
     line-height: 50px;
     margin: 10px;
     border-radius: 5px;
+}
+/* 手机屏幕下调整导航栏 */
+@media (max-width: 599px) {
+    main .nav-list a{
+        width: 130px;
+        font-size: 14px;
+    }
+    .et-hero-tab-slider{
+        display: none;
+    }
+    .search{
+        width: 85vw;
+
+    }
 }
 </style>
 </head>
@@ -201,6 +333,7 @@ body {
     
     <div class="et-hero-tabs-container"> 
       <div class="rtop" title="Return to the top page" onclick="window.scrollTo({top:0,behavior:'smooth'})">⇧</div>
+      <div class="theme-toggle" id="themeToggle" title="切换主题">🌙</div>
         <a class="et-hero-tab" href="#tab-1">購物</a>
         <a class="et-hero-tab" href="#tab-2">影視</a>
         <a class="et-hero-tab" href="#tab-3">政务</a>
@@ -221,27 +354,27 @@ body {
     </div>
 </section>
 
-<!-- Main -->
+<!-- Main 删除a标签内联样式 -->
 <main class="et-main">
   <section class="et-slide" id="tab-1">
     <h1>Shop(购物)</h1>
     <h3>something about shop</h3>
     <div class="nav-list">
-        <a style="background-color: red;" href="https://www.jd.com">京东</a>
-        <a style="background-color: #ff5000;" href="https://www.taobao.com">淘宝</a>
-        <a style="background-color: #007185;" href="https://www.amazon.com">Amazon</a>
-        <a style="background-color: #333;" href="https://www.shein.com.hk">SHEIN</a>
-        <a style="background-color: #5433eb;" href="https://shop.app">Shop</a>
-        <a style="background-color: #0071dc;" href="https://www.walmart.com">Walmart</a>
-        <a style="background-color: #2d2d2d;" href="https://www.asos.com">ASOS</a>
-        <a style="background-color: #d9000c;" href="https://zalando.com">Zalando</a>
-        <a style="background-color: #333;" href="https://www.farfetch.com">Farfetch</a>
-        <a style="background-color: #000;" href="https://www.sephora.com">Sephora</a>
-        <a style="background-color: #e1318c;" href="https://www.lookfantastic.com">Lookfantastic</a>
-        <a style="background-color: #893caa;" href="https://www.wayfair.com">Wayfair</a>
-        <a style="background-color: #1f80ae;" href="https://www.mothercare.com.hk">Mothercare</a>
-        <a style="background-color: #068488;" href="https://buybuybaby.com">Buybuybaby</a>
-        <a style="background-color: #f2c40c;" href="https://www.coinsbee.com/zh/">COINSBEE</a>
+        <a href="https://www.jd.com">京东</a>
+        <a href="https://www.taobao.com">淘宝</a>
+        <a href="https://www.amazon.com">Amazon</a>
+        <a href="https://www.shein.com.hk">SHEIN</a>
+        <a href="https://shop.app">Shop</a>
+        <a href="https://www.walmart.com">Walmart</a>
+        <a href="https://www.asos.com">ASOS</a>
+        <a href="https://zalando.com">Zalando</a>
+        <a href="https://www.farfetch.com">Farfetch</a>
+        <a href="https://www.sephora.com">Sephora</a>
+        <a href="https://www.lookfantastic.com">Lookfantastic</a>
+        <a href="https://www.wayfair.com">Wayfair</a>
+        <a href="https://www.mothercare.com.hk">Mothercare</a>
+        <a href="https://buybuybaby.com">Buybuybaby</a>
+        <a href="https://www.coinsbee.com/zh/">COINSBEE</a>
 
     </div>
   </section>
@@ -249,39 +382,39 @@ body {
     <h1>Video(影视)</h1>
     <h3>something about video</h3>
     <div class="nav-list">
-        <a style="background-color: #ff5550;" href="https://jx.4asport.com">免费影视</a>
-        <a style="background-color: #00aeec;" href="https://www.bilibili.com">哔哩</a>
-        <a style="background-color:#f25b20;" href="https://v.qq.com">腾讯</a>
-        <a style="background-color:#ff008c;" href="https://www.youku.com">优酷</a>
-        <a style="background-color:#00cc4c;" href="https://www.iqiyi.com">爱奇艺</a>
-        <a style="background-color:#000000;" href="https://www.douyin.com">抖音</a>
-        <a style="background-color:#000000;" href="https://www.tiktok.com">Tiktok</a>
-        <a style="background-color:red;" href="https://www.youtube.com">Youtube</a>
-        <a style="background-color:#ee4d3b;" href="https://www.netflix.com">Netflix</a>
-        <a style="background-color:#333;" href="https://video.unext.jp">Unext</a>
+        <a href="https://jx.4asport.com">免费影视</a>
+        <a href="https://www.bilibili.com">哔哩</a>
+        <a href="https://v.qq.com">腾讯</a>
+        <a href="https://www.youku.com">优酷</a>
+        <a href="https://www.iqiyi.com">爱奇艺</a>
+        <a href="https://www.douyin.com">抖音</a>
+        <a href="https://www.tiktok.com">Tiktok</a>
+        <a href="https://www.youtube.com">Youtube</a>
+        <a href="https://www.netflix.com">Netflix</a>
+        <a href="https://video.unext.jp">Unext</a>
     </div>
   </section>
 <section class="et-slide" id="tab-3">
     <h1>Governmental Service(政府维权服务)</h1>
     <h3>something about service</h3>
     <div class="nav-list">
-        <a style="background-color: #ff5550;" href="https://yhssglxt.miit.gov.cn/web/" title="适用于四大通信运营商">电信申诉</a>
-        <a style="background-color: #007185;" href="https://wsxf.miit.gov.cn" title="适用于拆迁补偿、房产证办理等长期未解决的问题，需按时间线+法律依据提交材料">网上信访</a>
-        <a style="background-color: #007185;" href="https://www.miit.gov.cn" title="中国政府">中国政府</a>
-        <a style="background-color: #007185;" href="https://hlwtsxt.miit.gov.cn/" title="互联网投诉">互联网投诉</a>
-        <a style="background-color: #007185;" href="https://www.12315.cn/" title="（国家市场监督管理总局）：处理商品质量、虚假宣传、价格欺诈等消费问题">12315</a>
-        <a style="background-color: #007185;" href="https://tousu.sina.com.cn/" title="高效响应消费纠纷">新浪黑猫投诉</a>
-        <a style="background-color: #007185;" href="https://www.12377.cn/" title="违法和不良信息举报中心">违法不良信息举报</a>
-        <a style="background-color: #007185;" href="https://www.gjxfj.gov.cn/gjxfj/wsxf/index.htm" title="适用于拆迁补偿、房产证办理等长期未解决的问题，需按时间线+法律依据提交材料">中国政府信访服务</a>
-        <a style="background-color: #007185;" href="https://liuyan.people.com.cn/" title="可直接向地方领导反映问题，附上红头文件或现场照片并标注“急难愁盼”会优先处理">领导留言板</a>
-        <a style="background-color: #007185;" href="https://www.12321.cn/" title="受理网络不良与垃圾信息举报">12321</a>
-        <a style="background-color: #007185;" href="https://www.12309.gov.cn/" title="受理贪腐渎职、冤假错案等举报">最高检12309</a>
-        <a style="background-color: #007185;" href="https://www.12306.cn/" title="中国铁路">12306</a>
-        <a style="background-color: #007185;" href="https://sswz.spb.gov.cn/portal/home " title="邮政投诉">邮政投诉</a>
-        <a style="background-color: #007185;" href="https://tousu.www.gov.cn/dc/" title="专治地方不作为问题，如扶贫款挪用、环保造假等">国务院互联网督查</a>
-        <a style="background-color: #007185;" href="https://www.12388.gov.cn/html/other_top.html" title="公职人员收红包、养小三、公款吃喝；领导亲属开公司“吃空饷”、黑恶势力保护伞；玩忽职守致重大事故（比如豆腐渣工程塌方）">中纪委12388</a>
-        <a style="background-color: #007185;" href="https://wenshu.court.gov.cn/" >中国裁判文书网</a>
-        <a style="background-color: #007185;" href="https://www.12348.gov.cn/" >中国法律服务网</a>
+        <a href="https://yhssglxt.miit.gov.cn/web/" title="适用于四大通信运营商">电信申诉</a>
+        <a href="https://wsxf.miit.gov.cn" title="适用于拆迁补偿、房产证办理等长期未解决的问题，需按时间线+法律依据提交材料">网上信访</a>
+        <a href="https://www.miit.gov.cn" title="中国政府">中国政府</a>
+        <a href="https://hlwtsxt.miit.gov.cn/" title="互联网投诉">互联网投诉</a>
+        <a href="https://www.12315.cn/" title="（国家市场监督管理总局）：处理商品质量、虚假宣传、价格欺诈等消费问题">12315</a>
+        <a href="https://tousu.sina.com.cn/" title="高效响应消费纠纷">新浪黑猫投诉</a>
+        <a href="https://www.12377.cn/" title="违法和不良信息举报中心">违法不良信息举报</a>
+        <a href="https://www.gjxfj.gov.cn/gjxfj/wsxf/index.htm" title="适用于拆迁补偿、房产证办理等长期未解决的问题，需按时间线+法律依据提交材料">中国政府信访服务</a>
+        <a href="https://liuyan.people.com.cn/" title="可直接向地方领导反映问题，附上红头文件或现场照片并标注“急难愁盼”会优先处理">领导留言板</a>
+        <a href="https://www.12321.cn/" title="受理网络不良与垃圾信息举报">12321</a>
+        <a href="https://www.12309.gov.cn/" title="受理贪腐渎职、冤假错案等举报">最高检12309</a>
+        <a href="https://www.12306.cn/" title="中国铁路">12306</a>
+        <a href="https://sswz.spb.gov.cn/portal/home " title="邮政投诉">邮政投诉</a>
+        <a href="https://tousu.www.gov.cn/dc/" title="专治地方不作为问题，如扶贫款挪用、环保造假等">国务院互联网督查</a>
+        <a href="https://www.12388.gov.cn/html/other_top.html" title="公职人员收红包、养小三、公款吃喝；领导亲属开公司“吃空饷”、黑恶势力保护伞；玩忽职守致重大事故（比如豆腐渣工程塌方）">中纪委12388</a>
+        <a href="https://wenshu.court.gov.cn/" >中国裁判文书网</a>
+        <a href="https://www.12348.gov.cn/" >中国法律服务网</a>
 
     </div>
   </section>
@@ -289,45 +422,45 @@ body {
     <h1>Front(前端)</h1>
     <h3>something about Front</h3>
     <div class="nav-list">
-        <a style="background-color:#333;" href="https://regex.4asport.com">正则匹配</a>
-        <a style="background-color:#333;" href="https://html.4asport.com">HTML编辑</a>
-        <a style="background-color:#333;" href="https://657258535.github.io/address-recognition/">智能地址识别</a>
-        <a style="background-color:#7d6ec6;" href="https://github.com/chinchang/hint.css" title="简单的提示库">Hint</a>
-        <a style="background-color:#625bf8;" href="https://fontsource.org">Fontsource</a>
-        <a style="background-color:#d8b33d;" href="https://wakamaifondue.com">字体解析</a>
-        <a style="background-color:#000;" href="https://www.fontconverter.io/en/woff-to-ttf">字体转换</a>
-        <a style="background-color:#52b13c;" href="https://convert.io/font-converter">字体转换</a>
-        <a style="background-color:#529EE0;" href="https://fontforge.org">字体设计</a>
-        <a style="background-color:#4f46e5;" href="https://split.js.org">视窗分割</a>
-        <a style="background-color:#16b777;" href="https://layui.dev/docs/2">Layui</a>
-        <a style="background-color:#FF0099;" href="https://9elements.github.io/fancy-border-radius/#38.56.28.44--.">模拟水滴</a>
-        <a style="background-color:#7269ff;" href="https://glassgenerator.netlify.app">毛玻璃特效</a>
-        <a style="background-color:#04286E;" href="https://coolbackgrounds.io">背景生成</a>
-        <a style="background-color:#7cb342;" href="https://html2canvas.hertzen.com">html2canvas</a>
-        <a style="background-color:#333;" href="https://github.com/jankovicsandras/imagetracerjs" title="适用于动漫风格">ImgToSVG</a>
-        <a style="background-color:#458251;" href="https://cdnjs.com">CDNJS</a>
-        <a style="background-color:#007bff;" href="https://fengyuanchen.github.io/cropper">Cropper</a>
-        <a style="background-color:#ff7d79;" href="https://sweetalert.js.org/">SweetAlert</a>
-        <a style="background-color:#1e1f26;" href="https://codepen.io">Codepen</a>
-        <a style="background-color:#f63;" href="https://cdnjs.com">Cdnjs</a>
-        <a style="background-color:#ff5627;" href="https://www.jsdelivr.com">Jsdelivr</a>
-        <a style="background-color:#23ade5;" href="https://artplayer.org">artplayer</a>
-        <a style="background-color:#000;" href="https://gsap.com">Gspa</a>
-        <a style="background-color:#3498db;" href="https://kenwheeler.github.io/slick">Slick</a>
-        <a style="background-color:#1f2028;" href="https://floating-ui.com">floatingUI</a>
-        <a style="background-color:#e3273a;" href="https://is.js.org">is.js</a>
-        <a style="background-color:#996f33;" href="https://projects.verou.me/awesomplete">Awesomplete</a>
-        <a style="background-color:#f75454;" href="https://fontastic.me">Fontastic</a>
-        <a style="background-color:#09b39c;" href="http://snapsvg.io">SnapSvg</a>
-        <a style="background-color:#000;" href="https://www.iconfont.cn">IconFont</a>
-        <a style="background-color:#222;" href="https://www.iconfinder.com">IconFinder</a>
-        <a style="background-color:#7f2e85;" href="https://wavesurfer.xyz">Wavesurfer</a>
-        <a style="background-color:#F72C5B;" href="https://echarts.apache.org">Echarts</a>
-        <a style="background-color:#FF6384;" href="https://www.chartjs.org">ChartJS</a>
-        <a style="background-color:#ffd43b;" href="https://fontawesome.com/">Fontawesome</a>
-        <a style="background-color:#000;" href="https://www.uxie.io">Uxie</a>
-        <a style="background-color:#5b5bf0;" href="https://uiverse.io">UIverse</a>
-        <a style="background-color: #ec5e95;" href="https://dribbble.com">Dribbble</a>
+        <a href="https://regex.4asport.com">正则匹配</a>
+        <a href="https://html.4asport.com">HTML编辑</a>
+        <a href="https://657258535.github.io/address-recognition/">智能地址识别</a>
+        <a href="https://github.com/chinchang/hint.css" title="简单的提示库">Hint</a>
+        <a href="https://fontsource.org">Fontsource</a>
+        <a href="https://wakamaifondue.com">字体解析</a>
+        <a href="https://www.fontconverter.io/en/woff-to-ttf">字体转换</a>
+        <a href="https://convert.io/font-converter">字体转换</a>
+        <a href="https://fontforge.org">字体设计</a>
+        <a href="https://split.js.org">视窗分割</a>
+        <a href="https://layui.dev/docs/2">Layui</a>
+        <a href="https://9elements.github.io/fancy-border-radius/#38.56.28.44--.">模拟水滴</a>
+        <a href="https://glassgenerator.netlify.app">毛玻璃特效</a>
+        <a href="https://coolbackgrounds.io">背景生成</a>
+        <a href="https://html2canvas.hertzen.com">html2canvas</a>
+        <a href="https://github.com/jankovicsandras/imagetracerjs" title="适用于动漫风格">ImgToSVG</a>
+        <a href="https://cdnjs.com">CDNJS</a>
+        <a href="https://fengyuanchen.github.io/cropper">Cropper</a>
+        <a href="https://sweetalert.js.org/">SweetAlert</a>
+        <a href="https://codepen.io">Codepen</a>
+        <a href="https://cdnjs.com">Cdnjs</a>
+        <a href="https://www.jsdelivr.com">Jsdelivr</a>
+        <a href="https://artplayer.org">artplayer</a>
+        <a href="https://gsap.com">Gspa</a>
+        <a href="https://kenwheeler.github.io/slick">Slick</a>
+        <a href="https://floating-ui.com">floatingUI</a>
+        <a href="https://is.js.org">is.js</a>
+        <a href="https://projects.verou.me/awesomplete">Awesomplete</a>
+        <a href="https://fontastic.me">Fontastic</a>
+        <a href="http://snapsvg.io">SnapSvg</a>
+        <a href="https://www.iconfont.cn">IconFont</a>
+        <a href="https://www.iconfinder.com">IconFinder</a>
+        <a href="https://wavesurfer.xyz">Wavesurfer</a>
+        <a href="https://echarts.apache.org">Echarts</a>
+        <a href="https://www.chartjs.org">ChartJS</a>
+        <a href="https://fontawesome.com/">Fontawesome</a>
+        <a href="https://www.uxie.io">Uxie</a>
+        <a href="https://uiverse.io">UIverse</a>
+        <a href="https://dribbble.com">Dribbble</a>
         
     </div>
   </section>
@@ -335,18 +468,18 @@ body {
     <h1>Development(开发)</h1>
     <h3>something about development</h3>
     <div class="nav-list">
-        <a style="background-color:#f7df1e;" href="https://657258535.github.io/China-Area-Region-Administrative-Divisions/">省市五级联动</a>
-        <a style="background-color:#252424f7;" href="https://json-analysis.4asport.com">JsonAnalysis</a>
-        <a style="background-color:#000000;" href="https://github.com">GitHub</a>
-		<a style="background-color:#000000;" href="https://desktop.github.com/download">GitHub Desktop</a>
-        <a style="background-color:#0066b8;" href="https://code.visualstudio.com">Vscode</a>
-        <a style="background-color:#5c2d91;" href="https://visualstudio.microsoft.com/zh-hans">VStudio</a>
-        <a style="background-color:#259E3B;" href="https://dcloud.io/hbuilderx.html">HbuilderX</a>
-        <a style="background-color:#028399;" href="http://github.com/electron/fiddle/releases">Electron</a>
-        <a style="background-color:#5dc9e2;" href="https://golang.google.cn/dl">Go编译工具</a>
-        <a style="background-color:#da7421;" href="https://www.python.org/downloads/">Python</a>
-        <a style="background-color: #00adf2;" href="https://www.namesilo.com">Namesilo</a>
-        <a style="background-color: #000;" href="https://vercel.com">Vercel</a>
+        <a href="https://657258535.github.io/China-Area-Region-Administrative-Divisions/">省市五级联动</a>
+        <a href="https://json-analysis.4asport.com">JsonAnalysis</a>
+        <a href="https://github.com">GitHub</a>
+		<a href="https://desktop.github.com/download">GitHub Desktop</a>
+        <a href="https://code.visualstudio.com">Vscode</a>
+        <a href="https://visualstudio.microsoft.com/zh-hans">VStudio</a>
+        <a href="https://dcloud.io/hbuilderx.html">HbuilderX</a>
+        <a href="http://github.com/electron/fiddle/releases">Electron</a>
+        <a href="https://golang.google.cn/dl">Go编译工具</a>
+        <a href="https://www.python.org/downloads/">Python</a>
+        <a href="https://www.namesilo.com">Namesilo</a>
+        <a href="https://vercel.com">Vercel</a>
     </div>
   </section>
   
@@ -354,105 +487,105 @@ body {
     <h1>Tool(工具)</h1>
     <h3>something about tool</h3>
     <div class="nav-list">
-      <a style="background-color:#333;" href="https://657258535.github.io/Certificate">合格证设计</a>
-      <a style="background-color: #333;" href="https://657258535.github.io/Excel-editing">Excel在线编辑</a>
-      <a style="background-color:#333;" href="https://657258535.github.io/Word-Editing/">Word在线编辑</a>
-      <a style="background-color:#333;" href="https://sql.4asport.com">SQL生成</a>
-      <a style="background-color:#333;" href="https://657258535.github.io/sqlite_manager/sqlite.html">SQLite在线管理</a>
-      <a style="background-color:#333;" href="https://github.com/657258535/mysql_manager">MySQL在线管理</a>
-      <a style="background-color: #333;" href="https://color-scheme.4asport.com">配色方案</a>
-      <a style="background-color: #333;" href="https://p2p.4asport.com" >P2P传输</a>
-      <a style="background-color:#000;" href="http://resume.4asport.com">生成简历</a>
-        <a style="background-color:#4285f4;" href="https://snapdrop.net">局域网传输</a>
-        <a style="background-color:#000;" href="https://f-droid.org/zh_Hans/packages/com.termux">Termux</a>
-        <a style="background-color:#0d6efd;" href="https://landrop.app">Landrop</a>
-        <a style="background-color:#0464f4;" href="https://github.com/hiddify/hiddify-next/releases">Hiddify-Next</a>
-        <a style="background-color:#f57200;" href="https://www.whois.com/whois">Whois</a>
-        <a style="background-color:#3f93b7;" href="https://whoer.net/zh">Whoer</a>
-        <a style="background-color:#f7734a;" href="https://www.ipify.org">IP地址</a>
-        <a style="background-color:#1e2836;" href="https://www.ipaddress.com/">IPAddress</a>
-        <a style="background-color:#009a61;" href="https://tool.lu/ip">域名查IP</a>
-        <a style="background-color:#7aadb8;" href="https://iplocation.com">IP定位</a>
-        <a style="background-color:#333;" href="http://anydoor.4asport.com">UX-Anydoor</a>
-        <a style="background-color:#333;" href="https://addmerit.4asport.com">攒功德</a>
-        <a style="background-color:#333;" href="https://text-deduplication.4asport.com">文本去重</a>
-        <a style="background-color:#333;" href="https://text-speech.4asport.com">文本转语音</a>
-        <a style="background-color:#333;" href="https://v2img.4asport.com/">视频转图片</a>
-        <a style="background-color:#333;" href="https://crx2zip.4asport.com">CRX转ZIP</a>
-        <a style="background-color:#333;" href="https://encodex.4asport.com">编解码</a>
-        <a style="background-color:#333;" href="https://jsencrypt.4asport.com">JS加密</a>
+      <a href="https://657258535.github.io/Certificate">合格证设计</a>
+      <a href="https://657258535.github.io/Excel-editing">Excel在线编辑</a>
+      <a href="https://657258535.github.io/Word-Editing/">Word在线编辑</a>
+      <a href="https://sql.4asport.com">SQL生成</a>
+      <a href="https://657258535.github.io/sqlite_manager/sqlite.html">SQLite在线管理</a>
+      <a href="https://github.com/657258535/mysql_manager">MySQL在线管理</a>
+      <a href="https://color-scheme.4asport.com">配色方案</a>
+      <a href="https://p2p.4asport.com" >P2P传输</a>
+      <a href="http://resume.4asport.com">生成简历</a>
+        <a href="https://snapdrop.net">局域网传输</a>
+        <a href="https://f-droid.org/zh_Hans/packages/com.termux">Termux</a>
+        <a href="https://landrop.app">Landrop</a>
+        <a href="https://github.com/hiddify/hiddify-next/releases">Hiddify-Next</a>
+        <a href="https://www.whois.com/whois">Whois</a>
+        <a href="https://whoer.net/zh">Whoer</a>
+        <a href="https://www.ipify.org">IP地址</a>
+        <a href="https://www.ipaddress.com/">IPAddress</a>
+        <a href="https://tool.lu/ip">域名查IP</a>
+        <a href="https://iplocation.com">IP定位</a>
+        <a href="http://anydoor.4asport.com">UX-Anydoor</a>
+        <a href="https://addmerit.4asport.com">攒功德</a>
+        <a href="https://text-deduplication.4asport.com">文本去重</a>
+        <a href="https://text-speech.4asport.com">文本转语音</a>
+        <a href="https://v2img.4asport.com/">视频转图片</a>
+        <a href="https://crx2zip.4asport.com">CRX转ZIP</a>
+        <a href="https://encodex.4asport.com">编解码</a>
+        <a href="https://jsencrypt.4asport.com">JS加密</a>
         
-        <a style="background-color:#333;" href="https://cznull.github.io/vsbm">毒蘑菇测试</a>
-        <a style="background-color:#333;" href="https://etcher.balena.io">刻录U盘</a>
-        <a style="background-color:#333;" href="https://developer.android.google.cn/studio/releases/platform-tools">Adb驱动</a>
-        <a style="background-color:#333;" href="https://www.7-zip.org">7zip</a>
+        <a href="https://cznull.github.io/vsbm">毒蘑菇测试</a>
+        <a href="https://etcher.balena.io">刻录U盘</a>
+        <a href="https://developer.android.google.cn/studio/releases/platform-tools">Adb驱动</a>
+        <a href="https://www.7-zip.org">7zip</a>
     </div>
   </section>
   <section class="et-slide" id="tab-7">
     <h1>Image(图片)</h1>
     <h3>something about image</h3>
     <div class="nav-list">
-	<a style="background-color:#d14287;" href="https://compressimg.4asport.com">图片压缩</a>
-  <a style="background-color:#333;" href="https://657258535.github.io/CreatePicture/">图片生成</a>
-	<a style="background-color:#73f694;" href="https://qrcode.4asport.com">QRcode</a>
-	<a style="background-color:#000;" href="https://img-filter.4asport.com">图片滤镜</a>
-        <a style="background-color:#37b358;" href="https://colors.4asport.com">Colors</a>
-        <a style="background-color:#454545;" href="https://www.remove.bg/zh">Rg-抠图</a>
-        <a style="background-color:#1a7cee;" href="https://ojoy.zaps.dev">Ojoy-2X</a>
-        <a style="background-color:#1565c0;" href="https://www.iconarchive.com">ICO素材</a>
-        <a style="background-color:#093f62;" href="https://wallhaven.cc">高清壁纸</a>
-        <a style="background-color:#222;" href="https://inkscape.org/zh-hans">Svg制作</a>
-        <a style="background-color:#e2d731;" href="https://image-slicer.4asport.com">九宫格切割</a>
-        <a style="background-color:#05b8f494;" href="https://Color-Analysis.4asport.com">颜色分析</a>
-        <a style="background-color:#f38107;" href="https://img-exif.4asport.com">Exif查看</a>
-        <a style="background-color:#d75656;" href="https://long-picture.4asport.com">长图拼接</a>
-        <a style="background-color:#17580f;" href="https://pdf2img.4asport.com">PDF转图片</a>
-        <a style="background-color:#333;" href="https://img-watermark.4asport.com">添加水印</a>
-        <a style="background-color:#ffcccc;" href="https://www.lcdf.org/gifsicle">Gifsicle</a>
-        <a style="background-color:#558ffa;" href="https://imagemagick.org">ImageMagick</a>
-        <a style="background-color:#000;" href="https://pngquant.org">Pngquant</a>
-        <a style="background-color:#000;" href="https://3d.hunyuan.tencent.com">混元3D</a>
-        <a style="background-color:#000;" href="https://arc.tencent.com/zh/ai-demos/faceRestoration" title="人像修复,抠图,增强,识别">腾讯ARC</a>
+	<a href="https://compressimg.4asport.com">图片压缩</a>
+  <a href="https://657258535.github.io/CreatePicture/">图片生成</a>
+	<a href="https://qrcode.4asport.com">QRcode</a>
+	<a href="https://img-filter.4asport.com">图片滤镜</a>
+        <a href="https://colors.4asport.com">Colors</a>
+        <a href="https://www.remove.bg/zh">Rg-抠图</a>
+        <a href="https://ojoy.zaps.dev">Ojoy-2X</a>
+        <a href="https://www.iconarchive.com">ICO素材</a>
+        <a href="https://wallhaven.cc">高清壁纸</a>
+        <a href="https://inkscape.org/zh-hans">Svg制作</a>
+        <a href="https://image-slicer.4asport.com">九宫格切割</a>
+        <a href="https://Color-Analysis.4asport.com">颜色分析</a>
+        <a href="https://img-exif.4asport.com">Exif查看</a>
+        <a href="https://long-picture.4asport.com">长图拼接</a>
+        <a href="https://pdf2img.4asport.com">PDF转图片</a>
+        <a href="https://img-watermark.4asport.com">添加水印</a>
+        <a href="https://www.lcdf.org/gifsicle">Gifsicle</a>
+        <a href="https://imagemagick.org">ImageMagick</a>
+        <a href="https://pngquant.org">Pngquant</a>
+        <a href="https://3d.hunyuan.tencent.com">混元3D</a>
+        <a href="https://arc.tencent.com/zh/ai-demos/faceRestoration" title="人像修复,抠图,增强,识别">腾讯ARC</a>
     </div>
   </section>
   <section class="et-slide" id="tab-8">
     <h1>A I</h1>
     <h3>something about A I</h3>
     <div class="nav-list">
-        <a style="background-color:#000;" href="https://chat.openai.com">ChatGPT</a>
-        <a style="background-color:#0064e0;" href="https://github.com/meta-llama/llama3">LLama3</a>
-        <a style="background-color:#061434;" href="https://www.midjourney.com/home">Midjourney</a>
-        <a style="background-color:#333;" href="https://github.com/spipm/Depix">Depix</a>
-        <a style="background-color:#111;" href="https://github.com/Sanster/lama-cleaner">lamacleaner</a>
-        <a style="background-color:#cc0707;" href="https://github.com/k4yt3x/video2x">Video2x</a>
-        <a style="background-color:#f2a01d;" href="https://github.com/Stability-AI/stablediffusion">S-Diffusion</a>
-        <a style="background-color:#f2a01d;" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">SD-WEBUI</a>
-        <a style="background-color:#000;" href="https://ollama.com">OLLAMA</a>
-        <a style="background-color:#0065e0;" href="https://gemini.google.com">Gemini</a>
+        <a href="https://chat.openai.com">ChatGPT</a>
+        <a href="https://github.com/meta-llama/llama3">LLama3</a>
+        <a href="https://www.midjourney.com/home">Midjourney</a>
+        <a href="https://github.com/spipm/Depix">Depix</a>
+        <a href="https://github.com/Sanster/lama-cleaner">lamacleaner</a>
+        <a href="https://github.com/k4yt3x/video2x">Video2x</a>
+        <a href="https://github.com/Stability-AI/stablediffusion">S-Diffusion</a>
+        <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">SD-WEBUI</a>
+        <a href="https://ollama.com">OLLAMA</a>
+        <a href="https://gemini.google.com">Gemini</a>
         
         
-        <a style="background-color:#000;" href="https://github.com/facefusion/facefusion">Facefusion</a>
-        <a style="background-color:#000;" href="https://github.com/hacksider/Deep-Live-Cam">Deep-Live-Cam</a>
-        <a style="background-color:#000;" href="https://github.com/s0md3v/roop?tab=readme-ov-file">Roop</a>
-        <a style="background-color:#000;" href="https://github.com/C0untFloyd/roop-unleashed">Roop-unleashed</a>
+        <a href="https://github.com/facefusion/facefusion">Facefusion</a>
+        <a href="https://github.com/hacksider/Deep-Live-Cam">Deep-Live-Cam</a>
+        <a href="https://github.com/s0md3v/roop?tab=readme-ov-file">Roop</a>
+        <a href="https://github.com/C0untFloyd/roop-unleashed">Roop-unleashed</a>
     </div>
   </section>
   <section class="et-slide" id="tab-9">
     <h1>Audio(音频)</h1>
     <h3>something about audio</h3>
     <div class="nav-list">
-        <a style="background-color:#ff7bb3;" href="https://github.com/babysor/MockingBird">MockingBird</a>
-        <a style="background-color:#333;" href="https://github.com/yxlllc/DDSP-SVC">DDSP-SVC</a>
-        <a style="background-color:#f2c40c;" href="https://www.algoriddim.com/neural-mix-pro">Neural-Mix</a>
-        <a style="background-color:#f8d231;" href="https://www.lalal.ai/zh-hans">LalaAI</a>
-        <a style="background-color:#000;" href="https://github.com/openai/whisper">whisper</a>
-        <a style="background-color:#000;" href="https://github.com/cmusphinx/pocketsphinx">Pocketsphinx</a>
-        <a style="background-color:#000;" href="https://github.com/mozilla/DeepSpeech">DeepSpeech</a>
-        <a style="background-color:#000;" href="https://github.com/jaywalnut310/vits">VITS</a>
-        <a style="background-color:#000;" href="https://github.com/CorentinJ/Real-Time-Voice-Cloning">RTVC</a>
-        <a style="background-color:#000;" href="https://github.com/espnet/espnet">ESPnet</a>
-        <a style="background-color:#000;" href="https://github.com/mozilla/TTS">mozillaTTS</a>
-        <a style="background-color:#000;" href="https://github.com/coqui-ai/TTS">coquiTTS</a>
+        <a href="https://github.com/babysor/MockingBird">MockingBird</a>
+        <a href="https://github.com/yxlllc/DDSP-SVC">DDSP-SVC</a>
+        <a href="https://www.algoriddim.com/neural-mix-pro">Neural-Mix</a>
+        <a href="https://www.lalal.ai/zh-hans">LalaAI</a>
+        <a href="https://github.com/openai/whisper">whisper</a>
+        <a href="https://github.com/cmusphinx/pocketsphinx">Pocketsphinx</a>
+        <a href="https://github.com/mozilla/DeepSpeech">DeepSpeech</a>
+        <a href="https://github.com/jaywalnut310/vits">VITS</a>
+        <a href="https://github.com/CorentinJ/Real-Time-Voice-Cloning">RTVC</a>
+        <a href="https://github.com/espnet/espnet">ESPnet</a>
+        <a href="https://github.com/mozilla/TTS">mozillaTTS</a>
+        <a href="https://github.com/coqui-ai/TTS">coquiTTS</a>
 
     </div>
   </section>
@@ -460,15 +593,15 @@ body {
     <h1>Video(视频)</h1>
     <h3>something about video</h3>
     <div class="nav-list">
-      <a style="background-color:#075492e8;" href="https://qdownload.4asport.com/video.html">轻影</a>
-        <a style="background-color:#5cb85c;"  href="https://github.com/BtbN/FFmpeg-Builds/releases">ffmpeg</a>
-        <a style="background-color:#fb5a42;"  href="https://github.com/sczhou/ProPainter">ProPainter</a>
-        <a style="background-color:#007aff;"  href="https://runwayml.com">GEN2</a>
-        <a style="background-color:#333;"  href="https://github.com/iperov/DeepFaceLab">DeepFaceLab</a>
-        <a style="background-color:#c296ff;"  href="https://wonderdynamics.com/">Wonder</a>
-        <a style="background-color:#2b3e60;"  href="https://swapface.org">Swapface</a>
-        <a style="background-color:#3d92c7;"  href="https://sketch.metademolab.com">ANIMATED</a>
-        <a style="background-color:#ff882e;"  href="https://studio.d-id.com">D-ID</a>
+      <a href="https://qdownload.4asport.com/video.html">轻影</a>
+        <a  href="https://github.com/BtbN/FFmpeg-Builds/releases">ffmpeg</a>
+        <a  href="https://github.com/sczhou/ProPainter">ProPainter</a>
+        <a  href="https://runwayml.com">GEN2</a>
+        <a  href="https://github.com/iperov/DeepFaceLab">DeepFaceLab</a>
+        <a  href="https://wonderdynamics.com/">Wonder</a>
+        <a  href="https://swapface.org">Swapface</a>
+        <a  href="https://sketch.metademolab.com">ANIMATED</a>
+        <a  href="https://studio.d-id.com">D-ID</a>
     </div>
   </section>
   
@@ -476,22 +609,22 @@ body {
     <h1>System(系统)</h1>
     <h3>something about system</h3>
     <div class="nav-list">
-        <a style="background-color:#9c28de;" href="https://oled.4asport.com">在线屏幕检测</a>
-        <a style="background-color:#1a73e8;" href="https://www.google.cn/intl/zh-CN/chrome/">Google Chrome</a>
-        <a style="background-color:#0078d4;" href="https://www.microsoft.com/zh-cn/software-download/windows10">Windows10</a>
-        <a style="background-color:#0067b8;" href="https://www.microsoft.com/zh-cn/software-download/windows11">Windows11</a>
-        <a style="background-color:#940aff4d;" href="https://windowsxlite.com">X-Lite</a>
-        <a style="background-color:red;" href="https://www.revi.cc">ReviOS</a>
-        <a style="background-color:red;" href="https://github.com/ntdevlabs/tiny11builder/releases">Tiny11</a>
-        <a style="background-color:#333;" href="https://wwvc.lanzouk.com/iJb6x14z249g">Win子系统</a>
-        <a style="background-color:#c70ad8af;" href="https://github.com/TGSAN/CMWTAT_Digital_Edition">系统激活</a>
-        <a style="background-color:#01af9c;" href="https://github.com/topjohnwu/Magisk/releases">Magisk</a>
-        <a style="background-color:#1084b2;" href="https://firmware-selector.openwrt.org">Openwrt</a>
-        <a style="background-color:#6610f2;" href="https://www.primeos.in">Primeos</a>
-        <a style="background-color:#0ead1e;" href="https://wwvc.lanzouk.com/igzPG14s07qh">Office</a>
-        <a style="background-color:#c5f955;" href="https://app.meshy.ai">Meshy</a>
-        <a style="background-color:#007bff;" href="https://monstermash.zone">MonsterMash3D</a>
-        <a style="background-color:#000;" href="https://appstorrent.ru" title="Mac软件商店">Mac软件商店</a>
+        <a href="https://oled.4asport.com">在线屏幕检测</a>
+        <a href="https://www.google.cn/intl/zh-CN/chrome/">Google Chrome</a>
+        <a href="https://www.microsoft.com/zh-cn/software-download/windows10">Windows10</a>
+        <a href="https://www.microsoft.com/zh-cn/software-download/windows11">Windows11</a>
+        <a href="https://windowsxlite.com">X-Lite</a>
+        <a href="https://www.revi.cc">ReviOS</a>
+        <a href="https://github.com/ntdevlabs/tiny11builder/releases">Tiny11</a>
+        <a href="https://wwvc.lanzouk.com/iJb6x14z249g">Win子系统</a>
+        <a href="https://github.com/TGSAN/CMWTAT_Digital_Edition">系统激活</a>
+        <a href="https://github.com/topjohnwu/Magisk/releases">Magisk</a>
+        <a href="https://firmware-selector.openwrt.org">Openwrt</a>
+        <a href="https://www.primeos.in">Primeos</a>
+        <a href="https://wwvc.lanzouk.com/igzPG14s07qh">Office</a>
+        <a href="https://app.meshy.ai">Meshy</a>
+        <a href="https://monstermash.zone">MonsterMash3D</a>
+        <a href="https://appstorrent.ru" title="Mac软件商店">Mac软件商店</a>
     </div>
   </section>
 
@@ -499,35 +632,53 @@ body {
     <h1>Download(下载)</h1>
     <h3>something about download</h3>
     <div class="nav-list">
-		<a style="background-color:#117fbeb9;" href="https://qdownload.4asport.com">QDownload</a>
-        <a style="background-color:#333;" href="https://wwvc.lanzouk.com/i6Sbv14z1q3g">IDM-6.38</a>
-        <a style="background-color:#222;" href="https://github.com/aria2/aria2/releases">Aria2</a>
-        <a style="background-color:#189fd6;" href="https://github.com/iawia002/lux/releases">Lux</a>
-		<a style="background-color:#189fd6;" href="https://gnuwin32.sourceforge.net/packages/wget.htm">Wget</a>
-		<a style="background-color:#093754;" href="https://curl.se/windows">Curl</a>
+		<a href="https://qdownload.4asport.com">QDownload</a>
+        <a href="https://wwvc.lanzouk.com/i6Sbv14z1q3g">IDM-6.38</a>
+        <a href="https://github.com/aria2/aria2/releases">Aria2</a>
+        <a href="https://github.com/iawia002/lux/releases">Lux</a>
+		<a href="https://gnuwin32.sourceforge.net/packages/wget.htm">Wget</a>
+		<a href="https://curl.se/windows">Curl</a>
     </div> 
   </section>
   <section class="et-slide" id="tab-13">
     <h1>Translation(翻译)</h1>
     <h3>something about Translation</h3>
     <div class="nav-list">
-        <a style="background-color:#106ebe;" href="https://cn.bing.com/translator">微软翻译</a>
-        <a style="background-color:#1a73e8;" href="https://translate.google.com">谷歌翻译</a>
-        <a style="background-color:#0000ff;" href="https://www.deepl.com/translator">DeepL</a>
-        <a style="background-color:#333;" href="https://github.com/huggingface/transformers">🤗HuggingFace</a>
-        <a style="background-color:#0000ff;" href="https://zh.rask.ai">RASK</a>
-        <a style="background-color:#0000ff;" href="https://github.com/niedev/RTranslator">RTranslator</a>
+        <a href="https://cn.bing.com/translator">微软翻译</a>
+        <a href="https://translate.google.com">谷歌翻译</a>
+        <a href="https://www.deepl.com/translator">DeepL</a>
+        <a href="https://github.com/huggingface/transformers">🤗HuggingFace</a>
+        <a href="https://zh.rask.ai">RASK</a>
+        <a href="https://github.com/niedev/RTranslator">RTranslator</a>
     </div> 
   </section>
 
   
 </main>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script>
 
 var inputsekey=document.getElementById("key");
 
 window.onload = function() {
+// 主题切换功能
+const themeToggle = document.getElementById('themeToggle');
+const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+// 设置初始主题
+document.documentElement.setAttribute('data-theme', currentTheme);
+themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+
+// 主题切换事件
+themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+});
+
 //搜索
 function searchkey(){
       window.open("https://www.bing.com/search?q="+inputsekey.value, "_blank");
@@ -552,27 +703,42 @@ class StickyNavigation {
 		this.currentTab = null;
 		this.tabContainerHeight = 70;
 		let self = this;
-		$('.et-hero-tab').click(function(e) { 
-		    if(e.target.href=='javascript:(0)'){
-		        
-		    }else{
-		        self.onTabClick(event, $(this));
-		    }
-			
+		
+		
+		document.querySelectorAll('.et-hero-tab').forEach(tab => {
+			tab.addEventListener('click', function(e) {
+				if(e.target.href === 'javascript:(0)') {
+					return;
+				} else {
+					self.onTabClick(event, this);
+				}
+			});
 		});
-		$(window).scroll(() => { this.onScroll(); });
-		$(window).resize(() => { this.onResize(); });
+		
+		
+		window.addEventListener('scroll', () => { this.onScroll(); });
+		
+		
+		window.addEventListener('resize', () => { this.onResize(); });
 	}
 	
 	onTabClick(event, element) {
 		event.preventDefault();
-		let scrollTop = $(element.attr('href')).offset().top - this.tabContainerHeight + 1;
-		$('html, body').animate({ scrollTop: scrollTop }, 200);
+		
+		let targetId = element.getAttribute('href');
+		let targetElement = document.querySelector(targetId);
+		let scrollTop = targetElement.getBoundingClientRect().top + window.scrollY - this.tabContainerHeight + 1;
+		
+		
+		window.scrollTo({
+			top: scrollTop,
+			behavior: 'smooth'
+		});
 	}
 	
 	onScroll() {
 		this.checkTabContainerPosition();
-    this.findCurrentTabSelector();
+		this.findCurrentTabSelector();
 	}
 	
 	onResize() {
@@ -582,12 +748,19 @@ class StickyNavigation {
 	}
 	
 	checkTabContainerPosition() {
-		let offset = $('.et-hero-tabs').offset().top + $('.et-hero-tabs').height() - this.tabContainerHeight;
-		if($(window).scrollTop() > offset) {
-			$('.et-hero-tabs-container').addClass('et-hero-tabs-container--top');
-		} 
-		else {
-			$('.et-hero-tabs-container').removeClass('et-hero-tabs-container--top');
+		
+		let heroTabs = document.querySelector('.et-hero-tabs');
+		let offset = heroTabs.getBoundingClientRect().top + window.scrollY + heroTabs.offsetHeight - this.tabContainerHeight;
+		
+		
+		let scrollTop = window.scrollY;
+		
+		
+		let container = document.querySelector('.et-hero-tabs-container');
+		if(scrollTop > offset) {
+			container.classList.add('et-hero-tabs-container--top');
+		} else {
+			container.classList.remove('et-hero-tabs-container--top');
 		}
 	}
 	
@@ -595,15 +768,26 @@ class StickyNavigation {
 		let newCurrentId;
 		let newCurrentTab;
 		let self = this;
-		$('.et-hero-tab').each(function() {
-			let id = $(this).attr('href');
-			let offsetTop = $(id).offset().top - self.tabContainerHeight;
-			let offsetBottom = $(id).offset().top + $(id).height() - self.tabContainerHeight;
-			if($(window).scrollTop() > offsetTop && $(window).scrollTop() < offsetBottom) {
+		
+		
+		document.querySelectorAll('.et-hero-tab').forEach(tab => {
+			
+			let id = tab.getAttribute('href');
+			let targetElement = document.querySelector(id);
+			
+			
+			let offsetTop = targetElement.getBoundingClientRect().top + window.scrollY - self.tabContainerHeight;
+			let offsetBottom = targetElement.getBoundingClientRect().top + window.scrollY + targetElement.offsetHeight - self.tabContainerHeight;
+			
+			
+			let scrollTop = window.scrollY;
+			
+			if(scrollTop > offsetTop && scrollTop < offsetBottom) {
 				newCurrentId = id;
-				newCurrentTab = $(this);
+				newCurrentTab = tab;
 			}
 		});
+		
 		if(this.currentId != newCurrentId || this.currentId === null) {
 			this.currentId = newCurrentId;
 			this.currentTab = newCurrentTab;
@@ -614,12 +798,19 @@ class StickyNavigation {
 	setSliderCss() {
 		let width = 0;
 		let left = 0;
+		
 		if(this.currentTab) {
-			width = this.currentTab.css('width');
-			left = this.currentTab.offset().left;
+			
+			width = window.getComputedStyle(this.currentTab).width;
+			
+			
+			left = this.currentTab.getBoundingClientRect().left;
 		}
-		$('.et-hero-tab-slider').css('width', width);
-		$('.et-hero-tab-slider').css('left', left);
+		
+		
+		let slider = document.querySelector('.et-hero-tab-slider');
+		slider.style.width = width;
+		slider.style.left = left + 'px';
 	}
 	
 }
